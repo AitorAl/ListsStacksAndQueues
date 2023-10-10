@@ -120,7 +120,7 @@ namespace Common
             while (currentNode != null && index > 1)
             {
                 IntListNode h = new IntListNode(index - 1);
-
+                Get(index) 
             }
         }
 
