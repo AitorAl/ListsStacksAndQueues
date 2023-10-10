@@ -27,13 +27,16 @@ namespace Common
         public void Add(int value)
         {
             //TODO #2: add a new integer to the end of the list
-
+            Values[NumElements] = value;
+            NumElements++;
         }
 
         public int Get(int index)
         {
             //TODO #3: return the element on the index-th position. YOU MUST USE GetNode(int). O if the position is out of bounds
-            return Value(index);
+            if (index > NumElements)
+                return 0;
+            return Values[index];
         }
 
 
@@ -49,13 +52,14 @@ namespace Common
         public void Remove(int index)
         {
             //TODO #5: remove the element on the index-th position. Do nothing if position is out of bounds2
-            if(index > NumElements)
+            
+            if (index < NumElements)
             {
-                return;
+                NumElements--;
             }
-            while (index < NumElements)
+            while (index <= NumElements)
             {
-                Values[index] = Values(index + 1);
+                Values[index] = Values[index + 1];
                 index++;
             }
         }

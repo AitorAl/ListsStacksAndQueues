@@ -108,21 +108,24 @@ namespace Common
         public void Remove(int index)
         {
             //TODO #5: remove the element on the index-th position. Do nothing if position is out of bounds
-            if(index > Count())
-            {
-                return;
-            }
+            
             IntListNode currentNode = First;
-            if(index == 1)
+            
+            if (index == 0 && currentNode != null)
             {
-                currentNode = First;
+                First = currentNode.Next;
             }
-            while (currentNode != null && index > 1)
+            while (currentNode.Next != null && index > 1)
             {
-                IntListNode h = new IntListNode(index - 1);
-                Get(index) 
+                currentNode = currentNode.Next;
+                index--;
+            }
+            if (index == 1)
+            {
+                currentNode.Next = currentNode.Next.Next;
             }
         }
+    
 
         
         public void Clear()
