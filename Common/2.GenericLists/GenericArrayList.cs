@@ -58,12 +58,12 @@ namespace Common
                 index++;
             }
         }
-    }
+    
 
         public void Clear()
         {
         //TODO #6: remove all the elements on the list
         NumElements = 0;
-    }
+         }
     }
 }

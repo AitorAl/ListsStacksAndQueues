@@ -38,8 +38,8 @@ public class GenericList<T> : IGenericList<T>
     public void Add(T value)
     {
         //TODO #1: add a new element to the end of the list
-        GenericArrayList<T> currentNode = First;
-        GenericArrayList<T> listNode = new GenericArrayList<T>(value);
+        GenericList<T> currentNode = First;
+        GenericList<T> listNode = new GenericList<T>(value);
         if (currentNode == null)
         {
             First = listNode;
@@ -62,7 +62,7 @@ public class GenericList<T> : IGenericList<T>
         GenericArrayList<T> currentNode = First;
         while (currentPos < index && currentNode != null)
         {
-            currentNode = currentNode.Next;
+            currentNode = currentNode.index;
             currentPos++;
         }
         if (currentPos == index)
@@ -73,12 +73,13 @@ public class GenericList<T> : IGenericList<T>
     public T Get(int index)
     {
         //TODO #3: return the element on the index-th position. YOU MUST USE GetNode(int). Return the default value for object class T if the position is out of bounds
-
+        GenericList<T> list = new GenericList<T>();
+        list = null;
         if (index < 0 || index >= Count())
         {
-            return 0;
+            return list;
         }
-        IntListNode x = GetNode(index);
+        IntListNode x = Get(index);
         return x.Value;
     }
 
@@ -87,7 +88,7 @@ public class GenericList<T> : IGenericList<T>
         //TODO #4: return the number of elements on the list
 
         int pos = 0;
-        GenericArrayList<T> currentNode = First;
+        GenericList<T> currentNode = First;
         if (currentNode != null)
         {
             pos++;
@@ -109,7 +110,7 @@ public class GenericList<T> : IGenericList<T>
     public void Remove(int index)
     {
         //TODO #5: remove the element on the index-th position. Do nothing if position is out of bounds
-        GenericArrayList<T> currentNode = First;
+        GenericList<T> currentNode = First;
 
         if (index == 0 && currentNode != null)
         {
