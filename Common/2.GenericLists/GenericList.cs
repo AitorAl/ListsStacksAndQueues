@@ -38,11 +38,11 @@ public class GenericList<T> : IGenericList<T>
     public void Add(T value)
     {
         //TODO #1: add a new element to the end of the list
-        GenericList<T> currentNode = First;
-        GenericList<T> listNode = new GenericList<T>(value);
+        GenericListNode<T> currentNode = First;
+        GenericListNode<T> lastNode = new GenericListNode<T>(value);
         if (currentNode == null)
         {
-            First = listNode;
+            First = lastNode;
         }
         else
         {
@@ -50,7 +50,7 @@ public class GenericList<T> : IGenericList<T>
             {
                 currentNode = currentNode.Next;
             }
-            currentNode.Next = listNode;
+            currentNode.Next = lastNode;
         }
     }
 
@@ -59,10 +59,10 @@ public class GenericList<T> : IGenericList<T>
         //TODO #2: Return the element in position 'index'
 
         int currentPos = 0;
-        GenericArrayList<T> currentNode = First;
+        GenericListNode<T> currentNode = First;
         while (currentPos < index && currentNode != null)
         {
-            currentNode = currentNode.index;
+            currentNode = currentNode.Next;
             currentPos++;
         }
         if (currentPos == index)
@@ -73,14 +73,10 @@ public class GenericList<T> : IGenericList<T>
     public T Get(int index)
     {
         //TODO #3: return the element on the index-th position. YOU MUST USE GetNode(int). Return the default value for object class T if the position is out of bounds
-        GenericList<T> list = new GenericList<T>();
-        list = null;
-        if (index < 0 || index >= Count())
-        {
-            return list;
-        }
-        IntListNode x = Get(index);
-        return x.Value;
+        GenericListNode<T> nulo = null;
+        if (FindNode == null)
+            return nulo.Value;
+        return FindNode(index).Value;
     }
 
     public int Count()
@@ -88,7 +84,7 @@ public class GenericList<T> : IGenericList<T>
         //TODO #4: return the number of elements on the list
 
         int pos = 0;
-        GenericList<T> currentNode = First;
+        GenericListNode<T> currentNode = First;
         if (currentNode != null)
         {
             pos++;
@@ -110,7 +106,7 @@ public class GenericList<T> : IGenericList<T>
     public void Remove(int index)
     {
         //TODO #5: remove the element on the index-th position. Do nothing if position is out of bounds
-        GenericList<T> currentNode = First;
+        GenericListNode<T> currentNode = First;
 
         if (index == 0 && currentNode != null)
         {
