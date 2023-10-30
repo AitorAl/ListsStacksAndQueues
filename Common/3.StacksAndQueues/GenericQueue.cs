@@ -4,7 +4,8 @@ namespace Common
     public class GenericQueue<T> : IPushPop<T>
     {
         //TODO #1: Declare a List inside this object class to store the objects. Choose the most appropriate object class
-        GenericArrayList<T> myList = new GenericArrayList<T>(40000);
+        //public GenericList<T> myList = new GenericList<T>();
+        public GenericArrayList<T> myList = new GenericArrayList<T>(40000);
         public string AsString()
         {
             //TODO #2: Return the list as a string. Use the method already implemented in your list

@@ -4,6 +4,7 @@ namespace Common
     public class GenericStack<T> : IPushPop<T>
     {
         //TODO #1: Declare a List inside this object class to store the objects. Choose the most appropriate object class
+        //public GenericList<T> myList = new GenericList<T>();
         public GenericArrayList<T> myList = new GenericArrayList<T>(40000);
         public string AsString()
         {
